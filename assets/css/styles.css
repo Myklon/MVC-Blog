@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Секция шапки */
+header {
+    background-color: #f5f5f5;
+    padding: 10px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    color: #333;
+}
+
+/*Секция навигации*/
+
+.left-nav a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+    margin-right: 20px;
+}
+
+.left-nav a:hover {
+    color: #0066ff;
+}
+
+.right-nav a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+    margin-left: 20px;
+}
+
+.right-nav a:hover {
+    color: #0066ff;
+}
+
+.full-width-nav {
+    background-color: #f5f5f5;
+    padding: 10px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Секция статей*/
+
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.article-card {
+    flex-basis: 100%;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+}
+
+.article-meta-item {
+    margin-right: 10px;
+}
+
+.article-card img {
+    width: 60%;
+}
+
+.article-card h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.article-card p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.article-card h3 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.article-card h3 a:hover {
+    color: #0066ff;
+}
+
+/*Секция регистрации*/
+
+form {
+    padding: 20px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0066ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #003399;
+}
+
+/*Секция подвала*/
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    background-color: #f5f5f5;
+}
