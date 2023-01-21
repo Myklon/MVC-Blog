@@ -10,24 +10,32 @@
 <?php
 require_once "../views/layouts/header.php";
 require_once "../views/layouts/navigation.php";
-?>
 
+require_once "../db/articles.php"
+?>
 
 <main>
     <div class="container">
         <h2 class="page-title">Все статьи</h2>
         <div class="articles">
+            <?php
+            if (isset($articles)) {
+                foreach($articles as $article) {
+                    echo   <<<ARTICLE
             <div class="article-card">
                 <div class="article-meta">
-                    <div class="article-meta-item">Author</div>
-                    <div class="article-meta-item">Category</div>
-                    <div class="article-meta-item">Date add</div>
+                    <div class="article-meta-item">{$article['author']}</div>
+                    <div class="article-meta-item">{$article['category']}</div>
+                    <div class="article-meta-item">{$article['dateAdd']}</div>
                 </div>
-                <h3><a href="">Article Title</a></h3>
-                <img src="https://leaguefactions.files.wordpress.com/2017/05/2017-05-28-shurima-map-updated-shroom.png" alt="Article Image">
-                <p>Short description of the article</p>
-                <p>Comments: 5</p>
+                <h3><a href="">{$article['title']}</a></h3>
+                <img src={$article['image']} alt="Article Image">
+                <p>{$article['description']}</p>
+                <p>Comments: {$article['comments']}</p>
             </div>
+ARTICLE;
+                }
+            } ?>
         </div>
     </div>
 </main>
