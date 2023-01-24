@@ -1,4 +1,5 @@
 <?php
+
 $articles = [
     [
         "author" => "Myklon",
@@ -19,21 +20,3 @@ $articles = [
         "comments" => 10
     ],
 ];
-
-// Пример одной статьи
-/*
-   <h2 class="page-title">Все статьи</h2>
-        <div class="articles">
-            <div class="article-card">
-                <div class="article-meta">
-                    <div class="article-meta-item">Author</div>
-                    <div class="article-meta-item">Category</div>
-                    <div class="article-meta-item">Date add</div>
-                </div>
-                <h3><a href="">Article Title</a></h3>
-                <img src="https://leaguefactions.files.wordpress.com/2017/05/2017-05-28-shurima-map-updated-shroom.png" alt="Article Image">
-                <p>Short description of the article</p>
-                <p>Comments: 5</p>
-            </div>
-        </div>
-*/

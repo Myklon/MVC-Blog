@@ -1,0 +1,18 @@
+DirectoryIndex index.php
+
+RewriteEngine on
+
+#RewriteBase /
+#RewriteCond %{REQUEST_URI} !^/public/
+#RewriteRule .* /public/$1 [L]
+
+#
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . index.php
+
+#
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* /public/index.php [L]
