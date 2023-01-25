@@ -4,7 +4,7 @@ namespace app\models;
 
 use app\interfaces\ArticleRepository;
 
-class ArrayArticlesRepository implements ArticleRepository
+class ArrayArticleRepository implements ArticleRepository
 {
     private string $path;
     public function __construct()
@@ -28,7 +28,7 @@ class ArrayArticlesRepository implements ArticleRepository
         }
     }
 
-    public function create($author, $category, $title, $image, $description, $comments)
+    public function create($author, $category, $title, $image, $synopsis, $description)
     {
         $articles = $this->readArticles();
         $new_id = $this->getNewId($articles);
@@ -40,8 +40,8 @@ class ArrayArticlesRepository implements ArticleRepository
             "dateAdd" => $dateAdd,
             "title" => $title,
             "image" => $image,
-            "description" => $description,
-            "comments" => $comments
+            "synopsis" => $synopsis,
+            "description" => $description
         );
 
         $articles[$new_id] = $new_article;
@@ -49,7 +49,7 @@ class ArrayArticlesRepository implements ArticleRepository
         $this->encodeJSON($articles);
     }
 
-    public function update($id, $author, $category, $title, $image, $description, $comments)
+    public function update($id, $author, $category, $title, $image, $synopsis, $description)
     {
         $articles = $this->readArticles();
         if (isset($articles[$id])) {
@@ -57,8 +57,8 @@ class ArrayArticlesRepository implements ArticleRepository
             $articles[$id]['category'] = $category;
             $articles[$id]['title'] = $title;
             $articles[$id]['image'] = $image;
+            $articles[$id]['synopsis'] = $synopsis;
             $articles[$id]['description'] = $description;
-            $articles[$id]['comments'] = $comments;
             $this->encodeJSON($articles);
         }
         else {

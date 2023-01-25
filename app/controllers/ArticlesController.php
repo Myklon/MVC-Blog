@@ -3,15 +3,24 @@
 namespace app\controllers;
 
 use app\interfaces\ArticleRepository;
+use app\models\ArrayArticleRepository;
 
 class ArticlesController {
+    private ArticleRepository $articles;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayArticleRepository();
+    }
+
     public function index()
     {
-        echo "Я главная страница со всеми статьями";
+        var_dump($this->articles->getAll());
     }
-    public function getArticle()
+    public function getArticle($params)
     {
-        echo "Я страница статьи";
+        $articleID = $params["id"];
+        var_dump($this->articles->getById($articleID));
     }
     public function createArticle()
     {
@@ -21,7 +30,7 @@ class ArticlesController {
     {
         echo "Подтверждение создания статьи";
     }
-    public function editArticle()
+    public function editArticle($id)
     {
         echo "Я страница редактирования статьи";
         echo <<<FORM

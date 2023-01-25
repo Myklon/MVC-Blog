@@ -1,6 +1,10 @@
 DirectoryIndex index.php
 
 RewriteEngine on
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* /public/index.php [L]
 
 #RewriteBase /
 #RewriteCond %{REQUEST_URI} !^/public/
@@ -11,8 +15,3 @@ RewriteEngine on
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
 #RewriteRule . index.php
-
-#
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule .* /public/index.php [L]
