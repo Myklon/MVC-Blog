@@ -1,48 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-</head>
-<body>
-
-<?php
-require_once __DIR__ . "/../layouts/header.php";
-require_once __DIR__ . "/../layouts/navigation.php";
-
-require_once __DIR__ . "/../../../db/articles.php"
-?>
-
 <main>
     <div class="container">
         <h2 class="page-title">Все статьи</h2>
+        <div class="button-wrapper">
+            <a href="articles/new" class="create-btn">Добавить статью</a>
+        </div>
         <div class="articles">
             <?php
             if (isset($articles)) {
-                foreach($articles as $article) {
-                    echo   <<<ARTICLE
+                foreach($articles as $id => $article) {
+                    echo <<<ARTICLES
             <div class="article-card">
                 <div class="article-meta">
-                    <div class="article-meta-item">{$article['author']}</div>
-                    <div class="article-meta-item">{$article['category']}</div>
-                    <div class="article-meta-item">{$article['dateAdd']}</div>
+                    <div class="article-meta-item">🎩 <a href="">{$article['author']} </a></div>
+                    <div class="article-meta-item">💻 <a href="">{$article['category']}</a></div>
+                    <div class="article-meta-item">📅 {$article['dateAdd']}</div>
                 </div>
-                <h3><a href="">{$article['title']}</a></h3>
+                <hr class="article">
+                <h3><a href="/articles/{$id}">{$article['title']}</a></h3>
+                <p>{$article['synopsis']}</p>
                 <img src={$article['image']} alt="Article Image">
-                <p>{$article['description']}</p>
-                <p>Comments: {$article['comments']}</p>
             </div>
-ARTICLE;
+ARTICLES;
                 }
             } ?>
         </div>
     </div>
 </main>
-
-<?php
-require_once __DIR__ . "/../layouts/footer.php";
-?>
-
-</body>
-</html>

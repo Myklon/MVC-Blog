@@ -1,20 +1,3 @@
-<?php
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-</head>
-<body>
-
-<?php
-require_once "../views/layouts/header.php";
-require_once "../views/layouts/navigation.php";
-?>
-
 <main>
     <div class="container" style="padding-top: 30px;">
         <div class="profile-header">
@@ -33,10 +16,3 @@ require_once "../views/layouts/navigation.php";
         </div>
     </div>
 </main>
-
-<?php
-require_once "../views/layouts/footer.php";
-?>
-
-</body>
-</html>
