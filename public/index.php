@@ -1,5 +1,7 @@
 <?php
 
+use app\controllers\ExceptionsController;
+use app\exceptions\PageNotFoundException;
 use Dotenv\Dotenv;
 use app\core\Router;
 
@@ -11,4 +13,8 @@ $dotenv->load();
 //var_dump($_SERVER);
 
 $router = new Router();
-$router->run();
+try {
+    $router->run();
+} catch (PageNotFoundException $e) {
+    (new ExceptionsController())->handler404();
+}

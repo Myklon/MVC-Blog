@@ -27,6 +27,9 @@ class Router
         $this->routes[] = new Route($pattern, $requestMethod, $controllerName, $action);
     }
 
+    /**
+     * @throws PageNotFoundException
+     */
     public function run()
     {
         foreach ($this->routes as $route) {
@@ -35,7 +38,6 @@ class Router
                 return;
             }
         }
-        header("HTTP/1.0 404 Not Found");
         throw new PageNotFoundException('Page not found', 404);
     }
 

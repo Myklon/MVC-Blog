@@ -1,11 +1,13 @@
 <main>
     <div class="container" >
         <div class="article">
+
+
+            <div class="article-card">
             <?php
             /** @var array $article */
             /** @var int $id */
             echo <<<ARTICLE
-            <div class="article-card">
                 <div class="nav-items">
                 <div class="article-meta">
                     <div class="article-meta-item">🎩 <a href="">{$article['author']}</a></div>
@@ -21,9 +23,9 @@
                 <h3><a href="/articles/{$id}">{$article['title']}</a></h3>
                 <p>{$article['synopsis']}</p>
                 <img src="{$article['image']}" alt="Article Image">
-                <p class="article-content">{$article['description']}</p>
+                ARTICLE; ?>
+                <p class="article-content"><?=nl2br($article["description"])?></p>
             </div>
         </div>
-        ARTICLE; ?>
     </div>
 </main>

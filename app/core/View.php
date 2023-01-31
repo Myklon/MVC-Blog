@@ -20,9 +20,16 @@ class View
         $buffer = $this->getBuffer($templateName, $vars);
         echo $buffer;
     }
+
+    /**
+     * @throws \Exception
+     */
     private function getBuffer(string $templateName, array $vars)
     {
-        # TODO: Не забыть проверку на отсутствие файла
+        if(!file_exists($this->templatesPath . '/' . $templateName))
+        {
+            throw new \Exception();
+        }
         extract($vars);
         ob_start();
         include $this->templatesPath . '/' . $templateName;

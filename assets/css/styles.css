@@ -4,7 +4,10 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url("/assets/background/pattern.png");
+    background-image: url("/assets/images/background/pattern.png");
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'PT Sans', sans-serif;
 }
 
 .container {
@@ -264,6 +267,20 @@ form {
 
 .btn:hover {
     background-color: #003399;
+}
+
+/*Секция ошибок*/
+
+div.error-dialog {
+    text-align: center;
+    font-size: 18px;
+}
+
+p.error {
+    padding-top: 20px;
+    color: #fc575e;
+    font-size: 44pt;
+    font-weight: bold;
 }
 
 /*Секция профиля*/
