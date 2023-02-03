@@ -1,0 +1,17 @@
+{
+  "name": "myklon/mvc-blog",
+  "authors": [
+    {
+      "name": "Myklon",
+      "email": "keironov@yandex.ru"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/"
+    }
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.5"
+  }
+}

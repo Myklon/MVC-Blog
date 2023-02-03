@@ -1,48 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
-</head>
-<body>
-
 <?php
-require_once "../views/layouts/header.php";
-require_once "../views/layouts/navigation.php";
 
-require_once "../db/articles.php"
-?>
+use app\controllers\ExceptionsController;
+use app\exceptions\PageNotFoundException;
+use Dotenv\Dotenv;
+use app\core\Router;
 
-<main>
-    <div class="container">
-        <h2 class="page-title">Все статьи</h2>
-        <div class="articles">
-            <?php
-            if (isset($articles)) {
-                foreach($articles as $article) {
-                    echo   <<<ARTICLE
-            <div class="article-card">
-                <div class="article-meta">
-                    <div class="article-meta-item">{$article['author']}</div>
-                    <div class="article-meta-item">{$article['category']}</div>
-                    <div class="article-meta-item">{$article['dateAdd']}</div>
-                </div>
-                <h3><a href="">{$article['title']}</a></h3>
-                <img src={$article['image']} alt="Article Image">
-                <p>{$article['description']}</p>
-                <p>Comments: {$article['comments']}</p>
-            </div>
-ARTICLE;
-                }
-            } ?>
-        </div>
-    </div>
-</main>
+require_once __DIR__ . "/../vendor/autoload.php";
 
-<?php
-require_once "../views/layouts/footer.php";
-?>
 
-</body>
-</html>
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
+//var_dump($_SERVER);
+
+$router = new Router();
+try {
+    $router->run();
+} catch (PageNotFoundException $e) {
+    (new ExceptionsController())->handler404();
+}
