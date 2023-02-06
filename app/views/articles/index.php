@@ -6,23 +6,22 @@
         </div>
         <div class="articles">
             <?php
-            if (isset($articles)) {
-                foreach($articles as $id => $article) {
-                    echo <<<ARTICLES
+            if (isset($articles)) :
+                foreach($articles as $article) : ?>
             <div class="article-card">
                 <div class="article-meta">
-                    <div class="article-meta-item">🎩 <a href="">{$article['author']} </a></div>
-                    <div class="article-meta-item">💻 <a href="">{$article['category']}</a></div>
-                    <div class="article-meta-item">📅 {$article['dateAdd']}</div>
+                    <div class="article-meta-item">🎩 <a href=""><?=$article['login']?></a></div>
+                    <div class="article-meta-item">💻 <a href=""><?=$article['category_name']?></a></div>
+                    <div class="article-meta-item">📅 <?=$article['create_date']?></div>
                 </div>
                 <hr class="article">
-                <h3><a href="/articles/{$id}">{$article['title']}</a></h3>
-                <p>{$article['synopsis']}</p>
-                <img src={$article['image']} alt="Article Image">
+                <h3><a href="/articles/<?=$article['article_id']?>"><?=$article['title']?></a></h3>
+                <p><?=$article['synopsis']?></p>
+                <?php if (isset($article["image"])):?>
+                <img src="<?=$article['image']?>" alt="Article Image">
+                <?php endif;?>
             </div>
-ARTICLES;
-                }
-            } ?>
+        <?php endforeach; endif; ?>
         </div>
     </div>
 </main>

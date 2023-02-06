@@ -3,8 +3,10 @@
 namespace app\controllers;
 
 use app\core\Controller;
-use app\interfaces\ArticleRepository;
+use app\interfaces\models\ArticleRepository;
 use app\models\ArrayArticleRepository;
+use app\models\DBArticleRepository;
+use app\services\Mysql;
 
 class ArticlesController extends Controller {
     private ArticleRepository $articles;
@@ -12,7 +14,8 @@ class ArticlesController extends Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->articles = new ArrayArticleRepository();
+//        $this->articles = new ArrayArticleRepository();
+        $this->articles = new DBArticleRepository();
     }
 
     public function index()
@@ -28,9 +31,9 @@ class ArticlesController extends Controller {
         $article = $this->articles->getById($articleID);
         $content = $this->view->prepareContent('/articles/article.php', [
             'id' => $articleID,
-            'article' => $article
+            'article' => $article[0]
         ]);
-        $title = $article['title'] . " / Статьи";
+        $title = $article[0]['title'] . " / Статьи";
         $this->renderPage($title, $content);
     }
     public function createArticle($fields)

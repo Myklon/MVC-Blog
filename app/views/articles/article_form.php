@@ -7,7 +7,7 @@
 <main>
     <div class="container">
         <h2 class="page-title"><?=$headline?></h2>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <?php
             if(isset($fields["errors"])): ?>
             <div class="error-container">
@@ -27,13 +27,18 @@
             <div class="form-group">
                 <label for="category">Категория:</label>
                 <input type="text" id="category" name="category" class="form-control" value="<?=$fields["category"] ?? "" ?>">
+                <select name="category" id="category" class="form-control">
+                    <option value="1">Test</option>
+                    <option value="2">Test 2</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="title">Название статьи:</label>
                 <input type="text" id="title" name="title" class="form-control" value="<?=$fields["title"] ?? "" ?>">
             </div>
             <div class="form-group">
-                <label for="image">Ссылка на обложку статьи: (https://kartinkin.net/uploads/posts/2021-07/1627090751_25-kartinkin-com-p-paren-smotrit-v-okno-art-art-krasivo-25.jpg)</label>
+                <label for="image">Обложка статьи [опционально]: </label>
+                <input type="file" id="image" name="image" class="form-control">
                 <input type="text" id="image" name="image" value="<?=$fields["image"] ?? "" ?>" class="form-control">
             </div>
             <div class="form-group">

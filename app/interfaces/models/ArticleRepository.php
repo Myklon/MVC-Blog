@@ -1,6 +1,6 @@
 <?php
 
-namespace app\interfaces;
+namespace app\interfaces\models;
 
 interface ArticleRepository {
     public function getAll();

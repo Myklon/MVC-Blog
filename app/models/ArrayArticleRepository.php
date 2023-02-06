@@ -3,7 +3,7 @@
 namespace app\models;
 
 use app\exceptions\PageNotFoundException;
-use app\interfaces\ArticleRepository;
+use app\interfaces\models\ArticleRepository;
 
 class ArrayArticleRepository implements ArticleRepository
 {
